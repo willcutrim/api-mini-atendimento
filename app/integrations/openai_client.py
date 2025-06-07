@@ -15,7 +15,24 @@ class OpenAIClient:
         history = json.loads(raw_history) if raw_history else []
 
         history.append({"role": "user", "content": message})
-        full_messages = [{"role": "system", "content": "Você é um atendente virtual simpático."}] + history
+        full_messages = [
+            {
+                "role": 
+                "system", 
+                "content": (
+                    "Você é um atendente virtual da empresa FaturaFácil. "
+                    "Seu papel é ajudar o cliente com dúvidas sobre seus débitos fictícios. "
+                    "Sempre que o cliente perguntar sobre débitos, gere uma lista com até 3 cobranças fictícias, "
+                    "incluindo o nome do serviço, valor e data de vencimento. "
+                    "Você deve parecer um atendente humano, usando linguagem cordial e clara. "
+                    "Exemplo de resposta: "
+                    "\"Verifiquei aqui e encontrei 2 débitos em aberto:\n"
+                    "1. Plano Premium - R$ 89,90 - Vencimento: 10/05/2025\n"
+                    "2. Mensalidade Academia - R$ 59,00 - Vencimento: 05/06/2025\n"
+                    "Caso precise de ajuda para regularizar, posso te orientar.\""
+                )
+            }
+        ] + history
 
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
