@@ -14,4 +14,4 @@ class HistoryRepo:
 
     @staticmethod
     def get_last_messages():
-        return [json.loads(msg) for msg in redis_conn.lrange("message_history", 0, 9)]
+        return [json.loads(msg) for msg in redis_conn.lrange("message_history", -10, -1)]
