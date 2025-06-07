@@ -87,6 +87,7 @@ WHATSAPP_VERIFY_TOKEN=seu_token_de_verificacao
 > ❗ Se **não for usar o WhatsApp**, comente a linha:
 > - `api.add_namespace(whatsapp_bp)` em `run.py`
 > - `api.add_namespace(whatsapp_bp, path="/whatsapp-hook")` em `main.py`
+> - `from app.api.whatsapp_webhook import whatsapp_bp` em `run.py`
 
 ---
 
