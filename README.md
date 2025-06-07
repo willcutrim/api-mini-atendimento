@@ -1,15 +1,55 @@
-# Mini Atendimento IA
-
-Este projeto é uma aplicação Flask com integração a uma IA via OpenAI, Redis para enfileiramento, e suporte opcional ao WhatsApp usando a API oficial da Meta.
-
----
-
 ## ✅ Requisitos
 
 - Python 3.11 (algumas bibliotecas requerem esta versão para funcionar corretamente)
 - Docker (opcional, mas recomendado)
 - Redis
 - Conta e token da API oficial do WhatsApp (opcional)
+
+---
+
+## 🛠️ Instalando Python 3.11 com `pyenv`
+
+Recomendamos o uso do `pyenv` para instalar e gerenciar a versão correta do Python.
+
+### 1. Instalar dependências
+
+```bash
+sudo apt update && sudo apt install -y \
+  make build-essential libssl-dev zlib1g-dev \
+  libbz2-dev libreadline-dev libsqlite3-dev curl \
+  libncursesw5-dev xz-utils tk-dev libxml2-dev \
+  libxmlsec1-dev libffi-dev liblzma-dev git
+```
+
+### 2. Instalar o `pyenv`
+
+```bash
+curl https://pyenv.run | bash
+```
+
+### 3. Adicionar no terminal
+
+Adicione no final do arquivo `~/.bashrc`, `~/.zshrc` ou equivalente:
+
+```bash
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+```
+
+Depois rode:
+
+```bash
+source ~/.bashrc   # ou ~/.zshrc
+```
+
+### 4. Verificar instalação
+
+```bash
+pyenv --version
+```
+
+Se funcionar, prossiga com a instalação do Python 3.11:
 
 ---
 
