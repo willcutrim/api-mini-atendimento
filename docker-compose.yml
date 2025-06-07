@@ -1,24 +1,26 @@
+version: '3.8'
+
 services:
   redis:
     image: redis:7
     ports:
       - "6380:6379"
+
   app:
     build: .
-    volumes:
-      - .:/app
     ports:
       - "5000:5000"
     environment:
-      - REDIS_HOST=redis
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - REDIS_HOST=${REDIS_HOST}
     depends_on:
       - redis
+
   worker:
     build: .
     command: python -m app.workers.message_worker
     environment:
-      - REDIS_HOST=redis
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - REDIS_HOST=${REDIS_HOST}
     depends_on:
       - redis
